@@ -1,0 +1,110 @@
+______________________________________
+Functia: void SplitString(char* line, char*** words)
+Primeste ca argument o linie citita de la tastatura si incarca intr-o
+variabila auxiliara, words, matricea obtinuta dupa impartirea
+propozitiei in subsiruri separate prin “ “.
+______________________________________
+Functia: Directory* CreateFileSystem()
+Aloca memorie pentru o variabila de tip Directory
+si seteza parametrii acesteia astfel incat sa poata fi
+folosita drept “root”. In final ii returneaza adresa.
+______________________________________
+Functia: void DeleteFileSystem(Directory* rootDir, char** commands)
+Elibereaza memoria din ultimul director ramas si
+din matricea de comenzi.
+______________________________________
+Functia: void PrintFileNode(void* n)
+Afiseaza numele unui fisier.
+______________________________________
+Functia: void PrintDirectoryNode(void* d)
+Afiseaza numele unui director.
+______________________________________
+Functia: int cmpFile(void* n1, void* n2)
+Se foloseste de functia strcmp pentru a compara numele a 2 fisiere.
+______________________________________
+Functia: int cmpDirectory(void* n1, void* n2)
+Se foloseste de functia strcmp pentru a compara numele a 2 directoare.
+______________________________________
+Functia: void InsertFile(Node** headRef, void* data, size_t dataSize)
+Construieste un nod de tip File si il insereaza pe pozitia potrivita
+in lista astfel: daca lista este goala nodul devine cap. 
+Altfel se compara ,intr-un while, data din fiecare nod cu data din nodul
+care trebuie inserat. In momentul in care este “indeplinita” conditia din
+while se refac legaturile.
+______________________________________
+Functia: void InsertDirectory(Node** headRef, void* data, size_t dataSize)
+Construieste un nod de tip Directory si il insereaza pe pozitia potrivita
+in lista astfel: daca lista este goala nodul devine cap.
+Altfel se compara ,intr-un while, data din fiecare nod cu data din nodul
+care trebuie inserat. In momentul in care este “indeplinita” conditia din
+while se refac legaturile.
+______________________________________
+Functia: void PrintList(Node *node, void (*fptr)(void *))
+Afiseaza toate elementele dintr-o lista generica.
+______________________________________
+Functia: void AddFile(Directory* dir, char* data, int size, char* name)
+Construieste o variabila de tip File din argumentele functiei
+si apeleaza mai departe functia InsertFile.
+______________________________________
+Functia: void AddDirectory(Directory* dir, char* name)
+Construieste o variabila de tip Directory din argumentele functiei
+si apeleaza mai departe functia InsertDirectory.
+______________________________________
+Functia: ListFiles(Directory* dir)
+Se foloseste de functia PrintList pentru a afisa fisierele si apoi
+directoarele din directorul curent(dir).
+______________________________________
+Functia: void PrintWorkingDirectory(Directory* dir)
+Creeaza o matrice de caractere pornind de la directorul curent
+dupa care afiseaza in ordine inversa toate “stringurile”.
+______________________________________
+Functia: TabHelper(int i)
+Folosita pentru comanda “Tree”. Realizeaza indentarea cu 4 spatii.
+______________________________________
+Functia: void SearchFileList(Directory* dir, int i)
+Afiseaza cu ajutorul functiei “TabHelper” toate fisierele
+din directorul curent.
+______________________________________
+Functia: void SearchDirectoryList(Directory* dir, int i)
+Afiseaza cu ajutorul functiei “TabHelper” toate fisierele
+si directoarele in mod recursiv din directorul curent.
+______________________________________
+Functia: void Tree(Directory* dir)
+Apeleaza functiile SearchFileList si SearchDirectoryList pentru a
+simula comanda “tree” din Linux.
+______________________________________
+Functia: void RemoveFile(Node** headRef, File* file)
+Cauta intr-o lista generica un element identic cu parametrul
+“file” si daca il gaseste elibereaza memoria si reface legaturile.
+______________________________________
+Functia: void RemoveFileList(Node** headRef)
+Elibereaza memorie tuturor elementelor dintr-o lista de fisiere.
+______________________________________
+Functia: void RemoveDirectory(Node** headRef, Directory* dir)
+Cauta intr-o lista generica un element identic cu parametrul
+"dir” si daca il gaseste elibereaza memoria si reface legaturile.
+______________________________________
+Functia: void RemoveDirectoryList(Node** headRef)
+Se foloseste de functiile RemoveFileList si RemoveDirectoryList
+in mod recursiv pentru a “sterge” toate fisierele si directoarele
+din directorul curent inclusiv.
+______________________________________
+Functia: int main()
+“Citeste” cate o linie de la tastatura intr-un while care
+simuleaza terminalul linux. Fiecare linie este impartita
+in cuvinte cu ajutorul functiei SplitString apoi se compara
+“cuvintele” cu niste comenzi predefinite.
+La intalnirea comenzii “delete fs” variabila “shouldRun”
+Devine 0 si while-ul ia sfarsit.
+______________________________________
+Programul a fost realizat in aproximativ 12 ore.
+
+Bibliografie:
+https://www.geeksforgeeks.org/generic-linked-list-in-c-2/
+https://cs.nyu.edu/courses/spring05/V22.0201-001/c_tutorial/
+classes/String.html
+https://acs.curs.pub.ro/2019/pluginfile.php/54084/
+mod_resource/content/0/Curs_8_AlocareDin_2019.pdf
+https://www.geeksforgeeks.org/
+given-a-linked-list-which-is-sorted-how-will-you-insert-in-sorted-way/
+https://www.geeksforgeeks.org/linked-list-set-3-deleting-node/
